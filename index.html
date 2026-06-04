@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matěj Král | CAD Engineer | Automation & Robotics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --surface: #fafafa;
+      --surface-alt: #f5f5f7;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: rgba(0,0,0,0.08);
+      --accent: #0071e3;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --max-width: 1200px;
+      --space: 24px;
+      --text-lg: 17px;
+      --text-xl: 20px;
+      --text-hero: 64px;
+      --shadow-soft: 0 2px 8px rgba(0,0,0,0.08);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(0,0,0,.03) 0.5px, transparent 1px) 0 0 / 24px 24px,
+                  var(--bg);
+      color: var(--text);
+      font-size: var(--text-lg);
+      line-height: 1.7;
+      font-family: var(--font-family, 'Inter', system-ui, sans-serif);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button, a {
+      font: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    nav {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color .25s ease;
+      padding: 8px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-action {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+
+    main {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      padding: 72px 0 84px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-grid {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      place-items: center;
+      text-align: center;
+      padding: 0 8px;
+    }
+
+    .hero-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f5f5f7;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(44px, 6vw, 64px);
+      line-height: 0.95;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-copy {
+      margin: 24px auto 0;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 170px;
+      min-height: 44px;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      transition: transform .25s ease, background .25s ease, color .25s ease;
+      border: 1px solid transparent;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .badges {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #f5f5f7;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    section {
+      width: 100%;
+      margin-top: 48px;
+      animation: fadeIn 1s ease both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 20%;
+    }
+
+    .section-headline {
+      margin: 0 0 18px;
+      font-size: 40px;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      max-width: 720px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .feature-card {
+      background: var(--surface-alt);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.04);
+      padding: 32px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-card strong {
+      color: var(--text);
+    }
+
+    .feature-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .feature-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .feature-title {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.05;
+    }
+
+    .feature-meta {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin: 24px 0 0;
+    }
+
+    .spec {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .spec-value {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .spec-label {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .tag-pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .highlight-panel {
+      display: grid;
+      gap: 24px;
+      background: var(--surface-alt);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .highlight-hero {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .highlight-numbers {
+      font-size: 44px;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .highlight-subtext {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0;
+      max-width: 720px;
+    }
+
+    .highlight-note {
+      color: var(--muted);
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .project-heading {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .project-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .project-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .project-meta {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-link {
+      margin-top: auto;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .skill-card h3 {
+      margin: 0 0 16px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .skill-list li::before {
+      content: "•";
+      margin-right: 8px;
+      color: var(--accent);
+    }
+
+    .certifications {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .cert-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5f5f7;
+      border-radius: 999px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 20px;
+      text-align: center;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 20px;
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      min-height: 130px;
+      display: grid;
+      gap: 10px;
+      justify-items: start;
+    }
+
+    .contact-card span {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .contact-card a,
+    .contact-card p {
+      margin: 0;
+      color: var(--text);
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .contact-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      min-width: 210px;
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: -4px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-meta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    @media (min-width: 640px) {
+      .nav-inner {
+        padding: 22px 0;
+      }
+
+      nav {
+        display: block;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .hero-grid {
+        gap: 48px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1.7fr 1fr;
+      }
+
+      .specs-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .highlight-panel {
+        padding: 48px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .page-shell {
+        padding: 0 32px 80px;
+      }
+
+      .hero {
+        padding-top: 92px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .project-gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      margin-bottom: 20px;
+    }
+
+    .project-gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-thumb {
+      flex-shrink: 0;
+      width: 120px;
+      height: 90px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f0f0f0;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 44px;
+    }
+
+    .gallery-thumb:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .gallery-thumb svg {
+      color: #c0c0c0;
+      width: 24px;
+      height: 24px;
+    }
+
+    .gallery-thumb span {
+      font-size: 9px;
+      color: #bbb;
+      font-family: monospace;
+      text-align: center;
+      padding: 0 6px;
+      line-height: 1.3;
+    }
+
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap {
+      width: clamp(300px, 70vw, 900px);
+      height: clamp(200px, 55vh, 600px);
+      background: #1a1a1a;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 15px;
+      font-family: inherit;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      transition: background 0.2s;
+      min-height: 44px;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      transition: background 0.2s;
+      border: none;
+      min-height: 44px;
+    }
+
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .lightbox-prev {
+      left: -60px;
+    }
+
+    .lightbox-next {
+      right: -60px;
+    }
+
+    .lightbox-caption {
+      color: #999;
+      font-size: 13px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .lightbox-counter {
+      color: #666;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 599px) {
+      .lightbox-prev,
+      .lightbox-next {
+        display: none;
+      }
+    }
+
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .download-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .download-card-icon {
+      font-size: 32px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .download-card-category {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #6e6e73;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .download-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .download-card-desc {
+      font-size: 14px;
+      color: #6e6e73;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .download-card-size {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.12);
+      color: #1d1d1f;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: auto;
+      transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+      background: transparent;
+      cursor: pointer;
+      min-height: 44px;
+      font-family: inherit;
+    }
+
+    .download-btn:hover:not(.unavailable) {
+      background: #f5f5f7;
+    }
+
+    .download-btn.unavailable {
+      opacity: 0.45;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      font-size: 11px;
+      background: #f0f0f0;
+      color: #999;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner page-shell">
+      <div class="brand">Matěj Král</div>
+      <nav aria-label="Primary navigation">
+        <div class="nav-links">
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#documents" class="nav-link">Documents</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#contact" class="nav-action">Download CV</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="hero-image">
+          <!-- Replace src with your photo: <img src="your-photo.jpg" alt="Matěj Král portrait" width="200" height="200" loading="lazy"> -->
+          <img src="photo.jpg" alt="Portrait of Matěj Král" width="200" height="200" loading="lazy">
+        </div>
+        <div>
+          <h1 class="hero-title">CAD Engineer.</h1>
+          <p class="hero-subtitle">Automation · Robotics · Precision Manufacturing</p>
+          <p class="hero-copy">Mechanical engineering graduate with hands-on expertise in industrial automation, vacuum systems, and precision CAD design. Based in Prague — building things that work in the real world.</p>
+          <div class="hero-actions">
+            <a href="#work" class="button-primary">View My Work ↓</a>
+            <a href="cv.pdf" download class="button-secondary">Download CV</a>
+          </div>
+          <div class="badges">
+            <span class="badge">🏆 CzechSkills 2026 — 2nd Place</span>
+            <span class="badge">📜 CSWP Certified</span>
+            <span class="badge">📍 Prague</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" aria-labelledby="featured-project">
+      <div class="feature-card">
+        <div class="project-gallery" id="gallery-featured">
+          <!-- Place files in same folder: eoat-assembly.jpg, solidworks-model.jpg, technical-drawing.jpg, robot-cell.jpg -->
+          <div class="gallery-thumb" onclick="openLightbox('featured', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+            <span>eoat-assembly.jpg</span>
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox('featured', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+            <span>solidworks-model.jpg</span>
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox('featured', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+            <span>technical-drawing.jpg</span>
+          </div>
+          <div class="gallery-thumb" onclick="openLightbox('featured', 3)" role="button" tabindex="0" aria-label="Gallery image 4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+            <span>robot-cell.jpg</span>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div>
+            <p class="section-copy">Featured Project</p>
+            <h2 class="section-headline" id="featured-project">End-of-Arm Tooling for Bag-in-Box Palletization</h2>
+            <p class="feature-meta">Graduation Thesis · March 2026</p>
+          </div>
+          <div class="feature-meta" style="justify-self: end;">Robot: FANUC R-1000iA/100F</div>
+        </div>
+        <div class="specs-grid">
+          <div class="spec"><div class="spec-value">10 kg</div><div class="spec-label">Payload</div></div>
+          <div class="spec"><div class="spec-value">1.7 kg</div><div class="spec-label">EOAT Weight</div></div>
+          <div class="spec"><div class="spec-value">k = 4.8</div><div class="spec-label">Safety Factor</div></div>
+          <div class="spec"><div class="spec-value">−60 kPa</div><div class="spec-label">Vacuum Level</div></div>
+        </div>
+        <p class="section-copy" style="margin-top: 28px;">Designed a complete End-of-Arm Tool for palletizing Bag-in-Box packaging using a FANUC industrial robot. Base plate EN-AW 5083 aluminum (8mm). Vacuum system: SMC ZK2A15K5PL-06-B ejector with 4× SMC 50mm anti-slip suction cups (total contact area 6,540 mm²). Digital PNP sensor with hysteresis for grip confirmation. Full technical drawings per ISO 13715, 18-component BOM, economic calculation.</p>
+        <div class="tags">
+          <span class="tag-pill">FANUC</span>
+          <span class="tag-pill">SolidWorks</span>
+          <span class="tag-pill">Vacuum Engineering</span>
+          <span class="tag-pill">ISO 13715</span>
+          <span class="tag-pill">EOAT</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight-panel" aria-labelledby="czechskills-heading">
+      <div class="highlight-hero">
+        <h2 class="highlight-numbers" id="czechskills-heading">2nd Place · Czech Republic</h2>
+        <p class="highlight-subtext">CzechSkills 2026 · March 26–28 · National 3-day competition</p>
+      </div>
+      <p class="section-copy">FANUC robot programming — palletization, deburring operations. RoboGuide programming with IF/ELSE logic and PLC integration.</p>
+      <p class="highlight-note">🏅 Full photo documentation available on <a href="https://www.flickr.com" target="_blank" rel="noopener noreferrer">Flickr</a></p>
+    </section>
+
+    <section aria-labelledby="projects-heading">
+      <h2 class="section-headline" id="projects-heading">Selected Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-gallery" id="gallery-cnc-milling">
+            <!-- Place files in same folder: machine-overview.jpg, cnc-in-action.jpg, solidworks-cad.jpg -->
+            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>machine-overview.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>cnc-in-action.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>solidworks-cad.jpg</span>
+            </div>
+          </div>
+          <div>
+          <div class="project-meta">
+            <p>Work area: 350×350×80 mm | Spindle: 500W DC</p>
+            <p>Precision: ±0.01 mm | Status: ✅ Functional — built in home workshop</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag-pill">CNC</span>
+            <span class="tag-pill">CAD</span>
+            <span class="tag-pill">DIY</span>
+            <span class="tag-pill">Precision Machining</span>
+          </div>
+          <a class="project-link" href="./cnc-ai-operator/index.html">View project →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-gallery" id="gallery-ai-operator">
+            <!-- Place files in same folder: web-interface.jpg, cncjs-screenshot.jpg, wiring.jpg -->
+            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>web-interface.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>cncjs-screenshot.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>wiring.jpg</span>
+            </div>
+          </div>
+          <div>
+          <p class="project-copy">DIY CNC milling machine with web-based AI control (Google Gemini), OpenCV computer vision, Flask + WebSocket backend, remote access via Tailscale VPN. Autostart via PM2 on Linux.</p>
+          <div class="project-tags">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Flask</span>
+            <span class="tag-pill">CNCjs</span>
+            <span class="tag-pill">OpenCV</span>
+            <span class="tag-pill">Tailscale</span>
+            <span class="tag-pill">Linux</span>
+          </div>
+          <a class="project-link" href="./cnc-ai-operator/index.html">View project →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-gallery" id="gallery-squat-rack">
+            <!-- Place files in same folder: rack-render.jpg, solidworks-drawing.jpg, fabricated.jpg -->
+            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>rack-render.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>solidworks-drawing.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>fabricated.jpg</span>
+            </div>
+          </div>
+          <div>
+          <div class="project-meta">
+            <p>1-tonne capacity structural steel rack. Material: S235JR. 5 iterations of DFM optimization.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag-pill">SolidWorks</span>
+            <span class="tag-pill">Structural Steel</span>
+            <span class="tag-pill">DFM</span>
+            <span class="tag-pill">FEA</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-gallery" id="gallery-atg-internship">
+            <!-- Place files in same folder: fanuc-robot.jpg, eoat-adapter.jpg, bin-picking.jpg -->
+            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>fanuc-robot.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>eoat-adapter.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>bin-picking.jpg</span>
+            </div>
+          </div>
+          <div>
+          <div class="project-meta">
+            <p>Designed reduction adapters for FANUC robots (3D printed). Developed plastic suction cups for precision grippers. Bin picking system with machine vision.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag-pill">FANUC</span>
+            <span class="tag-pill">3D Printing</span>
+            <span class="tag-pill">Machine Vision</span>
+            <span class="tag-pill">Pneumatics</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-gallery" id="gallery-reverse-eng">
+            <!-- Place files in same folder: cmm-measurement.jpg, solidworks-reconstruction.jpg, iso-drawing.jpg -->
+            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>cmm-measurement.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>solidworks-reconstruction.jpg</span>
+            </div>
+            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+              <span>iso-drawing.jpg</span>
+            </div>
+          </div>
+          <div>
+          <div class="project-meta">
+            <p>CMM measurement of components. Reconstructed aircraft exhaust pipe in SolidWorks. Technical drawings per ISO 4706-m (aerospace standard).</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag-pill">CMM</span>
+            <span class="tag-pill">SolidWorks</span>
+            <span class="tag-pill">Aerospace</span>
+            <span class="tag-pill">ISO 4706-m</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 class="section-headline" id="skills-heading">Skills & Certifications</h2>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>CAD & Design</h3>
+          <ul class="skill-list">
+            <li>SolidWorks (CSWP)</li>
+            <li>Blender</li>
+            <li>Technical Drawings ISO 13715</li>
+            <li>DFM/DFA</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <h3>Robotics</h3>
+          <ul class="skill-list">
+            <li>FANUC R-1000iA</li>
+            <li>RoboGuide</li>
+            <li>Bin Picking</li>
+            <li>Palletization</li>
+            <li>PLC Integration</li>
+            <li>ISO 10218</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <h3>Vacuum & Pneumatics</h3>
+          <ul class="skill-list">
+            <li>SMC Ejectors</li>
+            <li>Suction Cups</li>
+            <li>Digital Sensors</li>
+            <li>Porous Materials</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <h3>Manufacturing</h3>
+          <ul class="skill-list">
+            <li>CNC Machining</li>
+            <li>3D Printing</li>
+            <li>Laser Cutting</li>
+            <li>FEA</li>
+            <li>Tolerance Analysis</li>
+          </ul>
+        </article>
+        <article class="skill-card">
+          <h3>Software & Programming</h3>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>Flask</li>
+            <li>OpenCV</li>
+            <li>Linux</li>
+            <li>Git</li>
+          </ul>
+        </article>
+      </div>
+      <div class="certifications">
+        <span class="cert-pill">🏅 CSWP — Certified SolidWorks Professional</span>
+        <span class="cert-pill">🇬🇧 Cambridge First Certificate B2 (Score: 167/190)</span>
+        <span class="cert-pill">🤖 CzechSkills 2026 — 2nd Place, Robotic Systems Integration</span>
+      </div>
+    </section>
+
+    <section id="documents" aria-labelledby="documents-heading">
+      <h2 class="section-headline" id="documents-heading">Documents & Downloads</h2>
+      <p class="section-copy">Certificates, technical documents, and project files available for download.</p>
+      <div class="documents-grid">
+        <!-- Place file: cv.pdf in same folder as index.html -->
+        <div class="download-card">
+          <div class="download-card-icon">📄</div>
+          <p class="download-card-category">CV</p>
+          <h3 class="download-card-title">Curriculum Vitae</h3>
+          <p class="download-card-desc">Full CV — CAD Engineer, Automation & Robotics</p>
+          <p class="download-card-size">PDF · ~0.5 MB</p>
+          <a href="cv.pdf" download class="download-btn">Download PDF ↓</a>
+        </div>
+
+        <!-- Place file: thesis.pdf in same folder as index.html -->
+        <div class="download-card">
+          <div class="download-card-icon">📋</div>
+          <p class="download-card-category">THESIS</p>
+          <h3 class="download-card-title">Graduation Thesis</h3>
+          <p class="download-card-desc">End-of-Arm Tooling for Bag-in-Box Palletization — FANUC R-1000iA/100F</p>
+          <p class="download-card-size">PDF · ~8 MB</p>
+          <a href="thesis.pdf" download class="download-btn">Download PDF ↓</a>
+        </div>
+
+        <!-- Place file: czechskills-diploma.pdf in same folder as index.html -->
+        <div class="download-card">
+          <div class="download-card-icon">🏆</div>
+          <p class="download-card-category">DIPLOMA</p>
+          <h3 class="download-card-title">CzechSkills 2026 — 2nd Place</h3>
+          <p class="download-card-desc">National diploma · Robotic Systems Integration · March 2026</p>
+          <p class="download-card-size">PDF · ~2 MB</p>
+          <a href="czechskills-diploma.pdf" download class="download-btn">Download PDF ↓</a>
+        </div>
+
+        <!-- Place file: cswp-certificate.pdf in same folder as index.html -->
+        <div class="download-card">
+          <div class="download-card-icon">✓</div>
+          <p class="download-card-category">CERTIFICATION</p>
+          <h3 class="download-card-title">CSWP Certificate</h3>
+          <p class="download-card-desc">Certified SolidWorks Professional</p>
+          <p class="download-card-size">PDF · ~1 MB</p>
+          <a href="cswp-certificate.pdf" download class="download-btn">Download PDF ↓</a>
+        </div>
+
+        <!-- Place file: cambridge-certificate.pdf in same folder as index.html -->
+        <div class="download-card">
+          <div class="download-card-icon">📚</div>
+          <p class="download-card-category">CERTIFICATION</p>
+          <h3 class="download-card-title">Cambridge First Certificate</h3>
+          <p class="download-card-desc">B2 Level · Score 167/190</p>
+          <p class="download-card-size">PDF · ~1 MB</p>
+          <a href="cambridge-certificate.pdf" download class="download-btn">Download PDF ↓</a>
+        </div>
+
+        <!-- Place file: thesis-drawings.pdf in same folder as index.html -->
+        <div class="download-card">
+          <div class="download-card-icon">📐</div>
+          <p class="download-card-category">THESIS</p>
+          <h3 class="download-card-title">Technical Drawings</h3>
+          <p class="download-card-desc">ISO 13715 drawings, BOM (18 components), full documentation</p>
+          <p class="download-card-size">PDF · ~5 MB</p>
+          <a href="thesis-drawings.pdf" download class="download-btn">Download PDF ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="contact-panel">
+        <h2 class="section-headline" id="contact-heading">Let's Work Together</h2>
+        <p class="section-copy">Available for internships, projects, and collaborations.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span>📧 Email</span>
+          <a href="mailto:matejkral1603@gmail.com">matejkral1603@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <span>📱 Phone</span>
+          <a href="tel:+420725451822">+420 725 451 822</a>
+        </div>
+        <div class="contact-card" style="align-items: center; justify-items: center; text-align: center;">
+          <span>📄 CV</span>
+          <a class="contact-action" href="cv.pdf" download>Download CV</a>
+          <p class="contact-note"><!-- Place your CV file as cv.pdf in the same folder --></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-meta">Matěj Král · Prague · 2026</div>
+      <div class="footer-meta">matejkral1603@gmail.com</div>
+    </footer>
+  </main>
+
+  <script>
+    // ============ Navigation active state ============
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+    function updateActiveNav() {
+      const scrollPosition = window.scrollY + window.innerHeight * 0.2;
+      let activeId = 'top';
+      sections.forEach(section => {
+        if (section.offsetTop <= scrollPosition) {
+          activeId = section.id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${activeId}`);
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    window.addEventListener('resize', updateActiveNav);
+    updateActiveNav();
+
+    // ============ Photo placeholder fallback ============
+    document.querySelector('.hero-image img').addEventListener('error', function() {
+      this.style.display = 'none';
+      const placeholder = document.createElement('div');
+      placeholder.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f0f0f0;';
+      placeholder.innerHTML = '<svg width="80" height="80" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#c0c0c0"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" fill="#c0c0c0"/></svg>';
+      this.parentNode.appendChild(placeholder);
+    });
+
+    // ============ Lightbox gallery data ============
+    const galleryData = {
+      'featured': [
+        { label: 'eoat-assembly.jpg', filename: 'eoat-assembly.jpg' },
+        { label: 'solidworks-model.jpg', filename: 'solidworks-model.jpg' },
+        { label: 'technical-drawing.jpg', filename: 'technical-drawing.jpg' },
+        { label: 'robot-cell.jpg', filename: 'robot-cell.jpg' }
+      ],
+      'cnc-milling': [
+        { label: 'machine-overview.jpg', filename: 'machine-overview.jpg' },
+        { label: 'cnc-in-action.jpg', filename: 'cnc-in-action.jpg' },
+        { label: 'solidworks-cad.jpg', filename: 'solidworks-cad.jpg' }
+      ],
+      'ai-operator': [
+        { label: 'web-interface.jpg', filename: 'web-interface.jpg' },
+        { label: 'cncjs-screenshot.jpg', filename: 'cncjs-screenshot.jpg' },
+        { label: 'wiring.jpg', filename: 'wiring.jpg' }
+      ],
+      'squat-rack': [
+        { label: 'rack-render.jpg', filename: 'rack-render.jpg' },
+        { label: 'solidworks-drawing.jpg', filename: 'solidworks-drawing.jpg' },
+        { label: 'fabricated.jpg', filename: 'fabricated.jpg' }
+      ],
+      'atg-internship': [
+        { label: 'fanuc-robot.jpg', filename: 'fanuc-robot.jpg' },
+        { label: 'eoat-adapter.jpg', filename: 'eoat-adapter.jpg' },
+        { label: 'bin-picking.jpg', filename: 'bin-picking.jpg' }
+      ],
+      'reverse-eng': [
+        { label: 'cmm-measurement.jpg', filename: 'cmm-measurement.jpg' },
+        { label: 'solidworks-reconstruction.jpg', filename: 'solidworks-reconstruction.jpg' },
+        { label: 'iso-drawing.jpg', filename: 'iso-drawing.jpg' }
+      ]
+    };
+
+    // ============ Lightbox implementation ============
+    let currentProject = null;
+    let currentPhotoIndex = 0;
+    let touchStartX = 0;
+
+    // Create lightbox overlay
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-overlay';
+    lightbox.id = 'lightbox';
+    lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close lightbox" tabindex="0">×</button>
+        <div class="lightbox-img-wrap">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#666;"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+          <p style="color:#888;">Loading...</p>
+        </div>
+        <p class="lightbox-caption"></p>
+        <p class="lightbox-counter"></p>
+        <button class="lightbox-prev" aria-label="Previous photo" tabindex="0">❮</button>
+        <button class="lightbox-next" aria-label="Next photo" tabindex="0">❯</button>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    function openLightbox(projectId, photoIndex) {
+      currentProject = projectId;
+      currentPhotoIndex = photoIndex || 0;
+      const photos = galleryData[projectId];
+      if (!photos) return;
+      
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      updateLightboxContent();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      currentProject = null;
+    }
+
+    function updateLightboxContent() {
+      const photos = galleryData[currentProject];
+      if (!photos) return;
+      
+      const photo = photos[currentPhotoIndex];
+      const wrap = lightbox.querySelector('.lightbox-img-wrap');
+      wrap.innerHTML = `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#666;"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg><p style="color:#888;">${photo.label}</p>`;
+      
+      lightbox.querySelector('.lightbox-caption').textContent = photo.label;
+      lightbox.querySelector('.lightbox-counter').textContent = `${currentPhotoIndex + 1} of ${photos.length}`;
+    }
+
+    function nextPhoto() {
+      const photos = galleryData[currentProject];
+      if (!photos) return;
+      currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+      updateLightboxContent();
+    }
+
+    function prevPhoto() {
+      const photos = galleryData[currentProject];
+      if (!photos) return;
+      currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+      updateLightboxContent();
+    }
+
+    // Lightbox event listeners
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-next').addEventListener('click', nextPhoto);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', prevPhoto);
+    
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextPhoto();
+      if (e.key === 'ArrowLeft') prevPhoto();
+    });
+
+    // Touch swipe support
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, false);
+
+    lightbox.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextPhoto();
+        else prevPhoto();
+      }
+    }, false);
+
+    // Gallery thumbnail keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target.classList.contains('gallery-thumb')) {
+        e.target.click();
+      }
+    });
+
+    // ============ Document availability check ============
+    async function checkDocumentAvailability() {
+      const downloadBtns = document.querySelectorAll('.download-btn');
+      for (const btn of downloadBtns) {
+        const filename = btn.getAttribute('href');
+        try {
+          const response = await fetch(filename, { method: 'HEAD' });
+          if (!response.ok) {
+            btn.classList.add('unavailable');
+            const badge = document.createElement('div');
+            badge.className = 'coming-soon-badge';
+            badge.textContent = 'coming soon';
+            btn.parentNode.appendChild(badge);
+          }
+        } catch (err) {
+          btn.classList.add('unavailable');
+          const badge = document.createElement('div');
+          badge.className = 'coming-soon-badge';
+          badge.textContent = 'coming soon';
+          btn.parentNode.appendChild(badge);
+        }
+      }
+    }
+
+    // Run document check on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkDocumentAvailability);
+    } else {
+      checkDocumentAvailability();
+    }
+  </script>
+</body>
+</html>
