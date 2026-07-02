@@ -90,6 +90,14 @@
     }
 
     nav {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      max-width: 100%;
+    }
+
+    nav::-webkit-scrollbar {
       display: none;
     }
 
@@ -97,7 +105,11 @@
       display: flex;
       align-items: center;
       gap: 24px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+    }
+
+    .nav-links a {
+      white-space: nowrap;
     }
 
     .nav-links a {
@@ -446,6 +458,17 @@
       font-size: 15px;
     }
 
+    .project-video {
+      width: 100%;
+      border-radius: 10px;
+      background: #111;
+      display: block;
+    }
+
+    .project-video::before {
+      content: "";
+    }
+
     .skills-grid {
       display: grid;
       gap: 20px;
@@ -612,7 +635,7 @@
       }
 
       .contact-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .highlight-panel {
@@ -678,6 +701,12 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
 
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .gallery-thumb svg {
       color: #c0c0c0;
       width: 24px;
@@ -733,6 +762,13 @@
       font-family: inherit;
       flex-direction: column;
       gap: 12px;
+      overflow: hidden;
+    }
+
+    .lightbox-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .lightbox-close {
@@ -931,9 +967,12 @@
           <h1 class="hero-title">CAD Engineer.</h1>
           <p class="hero-subtitle">Automation · Robotics · Precision Manufacturing</p>
           <p class="hero-copy">Mechanical engineering graduate with hands-on expertise in industrial automation, vacuum systems, and precision CAD design. Based in Prague — building things that work in the real world.</p>
+          <p class="hero-copy" style="margin-top: 12px; font-weight: 600; color: var(--text);">Open to internships and full-time roles — available now.</p>
           <div class="hero-actions">
             <a href="#work" class="button-primary">View My Work ↓</a>
             <a href="cv.pdf" download class="button-secondary">Download CV</a>
+            <!-- Replace with your real GitHub URL -->
+            <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer" class="button-secondary">GitHub ↗</a>
           </div>
           <div class="badges">
             <span class="badge">🏆 CzechSkills 2026 — 2nd Place</span>
@@ -944,26 +983,23 @@
       </div>
     </section>
 
+    <section id="about" aria-labelledby="about-heading">
+      <div class="feature-card">
+        <h2 class="section-headline" id="about-heading">About Me</h2>
+        <p class="section-copy" style="margin-bottom: 0;">
+          I'm a mechanical engineering graduate who'd rather be in the workshop than behind a desk — though I'm equally comfortable in SolidWorks modeling a suction cup array to the millimeter. My focus is industrial automation: robot tooling, vacuum and pneumatic systems, and the CAD/DFM work that turns a good idea into something that survives contact with a production line. I placed 2nd nationally at CzechSkills 2026 in Robotic Systems Integration, programming FANUC robots under competition pressure — and outside of school and competitions, I build things for fun, like an AI-controlled CNC mill running in my own home workshop. I'm looking for a team where I can keep doing both: rigorous engineering and hands-on building.
+        </p>
+      </div>
+    </section>
+
     <section id="work" aria-labelledby="featured-project">
       <div class="feature-card">
         <div class="project-gallery" id="gallery-featured">
           <!-- Place files in same folder: eoat-assembly.jpg, solidworks-model.jpg, technical-drawing.jpg, robot-cell.jpg -->
-          <div class="gallery-thumb" onclick="openLightbox('featured', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-            <span>eoat-assembly.jpg</span>
-          </div>
-          <div class="gallery-thumb" onclick="openLightbox('featured', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-            <span>solidworks-model.jpg</span>
-          </div>
-          <div class="gallery-thumb" onclick="openLightbox('featured', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-            <span>technical-drawing.jpg</span>
-          </div>
-          <div class="gallery-thumb" onclick="openLightbox('featured', 3)" role="button" tabindex="0" aria-label="Gallery image 4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-            <span>robot-cell.jpg</span>
-          </div>
+          <div class="gallery-thumb" onclick="openLightbox('featured', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+          <div class="gallery-thumb" onclick="openLightbox('featured', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+          <div class="gallery-thumb" onclick="openLightbox('featured', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
+          <div class="gallery-thumb" onclick="openLightbox('featured', 3)" role="button" tabindex="0" aria-label="Gallery image 4"></div>
         </div>
         <div class="feature-grid">
           <div>
@@ -996,7 +1032,12 @@
         <p class="highlight-subtext">CzechSkills 2026 · March 26–28 · National 3-day competition</p>
       </div>
       <p class="section-copy">FANUC robot programming — palletization, deburring operations. RoboGuide programming with IF/ELSE logic and PLC integration.</p>
-      <p class="highlight-note">🏅 Full photo documentation available on <a href="https://www.flickr.com" target="_blank" rel="noopener noreferrer">Flickr</a></p>
+      <div class="project-gallery" id="gallery-czechskills" style="margin-bottom: 0;">
+        <!-- Place files in same folder: czechskills-podium.jpg, czechskills-programming.jpg, czechskills-diploma-photo.jpg -->
+        <div class="gallery-thumb" onclick="openLightbox('czechskills', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+        <div class="gallery-thumb" onclick="openLightbox('czechskills', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+        <div class="gallery-thumb" onclick="openLightbox('czechskills', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
+      </div>
     </section>
 
     <section aria-labelledby="projects-heading">
@@ -1005,18 +1046,9 @@
         <article class="project-card">
           <div class="project-gallery" id="gallery-cnc-milling">
             <!-- Place files in same folder: machine-overview.jpg, cnc-in-action.jpg, solidworks-cad.jpg -->
-            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>machine-overview.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>cnc-in-action.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>solidworks-cad.jpg</span>
-            </div>
+            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+            <div class="gallery-thumb" onclick="openLightbox('cnc-milling', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
           </div>
           <div>
           <div class="project-meta">
@@ -1035,20 +1067,17 @@
         <article class="project-card">
           <div class="project-gallery" id="gallery-ai-operator">
             <!-- Place files in same folder: web-interface.jpg, cncjs-screenshot.jpg, wiring.jpg -->
-            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>web-interface.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>cncjs-screenshot.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>wiring.jpg</span>
-            </div>
+            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+            <div class="gallery-thumb" onclick="openLightbox('ai-operator', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
           </div>
           <div>
+          <!-- Place file: cnc-ai-demo.mp4 in same folder as index.html for a working demo clip -->
+          <div class="project-video-wrap" data-video-src="cnc-ai-demo.mp4">
+            <video class="project-video" controls preload="none" poster="web-interface.jpg">
+              <source src="cnc-ai-demo.mp4" type="video/mp4">
+            </video>
+          </div>
           <p class="project-copy">DIY CNC milling machine with web-based AI control (Google Gemini), OpenCV computer vision, Flask + WebSocket backend, remote access via Tailscale VPN. Autostart via PM2 on Linux.</p>
           <div class="project-tags">
             <span class="tag-pill">Python</span>
@@ -1064,18 +1093,9 @@
         <article class="project-card">
           <div class="project-gallery" id="gallery-squat-rack">
             <!-- Place files in same folder: rack-render.jpg, solidworks-drawing.jpg, fabricated.jpg -->
-            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>rack-render.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>solidworks-drawing.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>fabricated.jpg</span>
-            </div>
+            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+            <div class="gallery-thumb" onclick="openLightbox('squat-rack', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
           </div>
           <div>
           <div class="project-meta">
@@ -1092,18 +1112,9 @@
         <article class="project-card">
           <div class="project-gallery" id="gallery-atg-internship">
             <!-- Place files in same folder: fanuc-robot.jpg, eoat-adapter.jpg, bin-picking.jpg -->
-            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>fanuc-robot.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>eoat-adapter.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>bin-picking.jpg</span>
-            </div>
+            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+            <div class="gallery-thumb" onclick="openLightbox('atg-internship', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
           </div>
           <div>
           <div class="project-meta">
@@ -1120,18 +1131,9 @@
         <article class="project-card">
           <div class="project-gallery" id="gallery-reverse-eng">
             <!-- Place files in same folder: cmm-measurement.jpg, solidworks-reconstruction.jpg, iso-drawing.jpg -->
-            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 0)" role="button" tabindex="0" aria-label="Gallery image 1">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>cmm-measurement.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 1)" role="button" tabindex="0" aria-label="Gallery image 2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>solidworks-reconstruction.jpg</span>
-            </div>
-            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 2)" role="button" tabindex="0" aria-label="Gallery image 3">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-              <span>iso-drawing.jpg</span>
-            </div>
+            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+            <div class="gallery-thumb" onclick="openLightbox('reverse-eng', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
           </div>
           <div>
           <div class="project-meta">
@@ -1287,6 +1289,11 @@
           <span>📱 Phone</span>
           <a href="tel:+420725451822">+420 725 451 822</a>
         </div>
+        <div class="contact-card">
+          <span>💻 GitHub</span>
+          <!-- Replace with your real GitHub URL -->
+          <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">github.com/YOUR-USERNAME</a>
+        </div>
         <div class="contact-card" style="align-items: center; justify-items: center; text-align: center;">
           <span>📄 CV</span>
           <a class="contact-action" href="cv.pdf" download>Download CV</a>
@@ -1332,40 +1339,41 @@
       this.parentNode.appendChild(placeholder);
     });
 
-    // ============ Lightbox gallery data ============
+    // ============ Gallery data (edit filenames here) ============
     const galleryData = {
-      'featured': [
-        { label: 'eoat-assembly.jpg', filename: 'eoat-assembly.jpg' },
-        { label: 'solidworks-model.jpg', filename: 'solidworks-model.jpg' },
-        { label: 'technical-drawing.jpg', filename: 'technical-drawing.jpg' },
-        { label: 'robot-cell.jpg', filename: 'robot-cell.jpg' }
-      ],
-      'cnc-milling': [
-        { label: 'machine-overview.jpg', filename: 'machine-overview.jpg' },
-        { label: 'cnc-in-action.jpg', filename: 'cnc-in-action.jpg' },
-        { label: 'solidworks-cad.jpg', filename: 'solidworks-cad.jpg' }
-      ],
-      'ai-operator': [
-        { label: 'web-interface.jpg', filename: 'web-interface.jpg' },
-        { label: 'cncjs-screenshot.jpg', filename: 'cncjs-screenshot.jpg' },
-        { label: 'wiring.jpg', filename: 'wiring.jpg' }
-      ],
-      'squat-rack': [
-        { label: 'rack-render.jpg', filename: 'rack-render.jpg' },
-        { label: 'solidworks-drawing.jpg', filename: 'solidworks-drawing.jpg' },
-        { label: 'fabricated.jpg', filename: 'fabricated.jpg' }
-      ],
-      'atg-internship': [
-        { label: 'fanuc-robot.jpg', filename: 'fanuc-robot.jpg' },
-        { label: 'eoat-adapter.jpg', filename: 'eoat-adapter.jpg' },
-        { label: 'bin-picking.jpg', filename: 'bin-picking.jpg' }
-      ],
-      'reverse-eng': [
-        { label: 'cmm-measurement.jpg', filename: 'cmm-measurement.jpg' },
-        { label: 'solidworks-reconstruction.jpg', filename: 'solidworks-reconstruction.jpg' },
-        { label: 'iso-drawing.jpg', filename: 'iso-drawing.jpg' }
-      ]
+      'featured': ['eoat-assembly.jpg', 'solidworks-model.jpg', 'technical-drawing.jpg', 'robot-cell.jpg'],
+      'czechskills': ['czechskills-podium.jpg', 'czechskills-programming.jpg', 'czechskills-diploma-photo.jpg'],
+      'cnc-milling': ['machine-overview.jpg', 'cnc-in-action.jpg', 'solidworks-cad.jpg'],
+      'ai-operator': ['web-interface.jpg', 'cncjs-screenshot.jpg', 'wiring.jpg'],
+      'squat-rack': ['rack-render.jpg', 'solidworks-drawing.jpg', 'fabricated.jpg'],
+      'atg-internship': ['fanuc-robot.jpg', 'eoat-adapter.jpg', 'bin-picking.jpg'],
+      'reverse-eng': ['cmm-measurement.jpg', 'solidworks-reconstruction.jpg', 'iso-drawing.jpg']
     };
+
+    const placeholderIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>';
+
+    // Populate every thumbnail with a real <img>, falling back to a
+    // "coming soon" placeholder if the file can't be loaded.
+    function renderThumbnails() {
+      Object.entries(galleryData).forEach(([projectId, files]) => {
+        const gallery = document.getElementById(`gallery-${projectId}`);
+        if (!gallery) return;
+        const thumbs = gallery.querySelectorAll('.gallery-thumb');
+        thumbs.forEach((thumb, i) => {
+          const filename = files[i];
+          if (!filename) return;
+          const img = document.createElement('img');
+          img.src = filename;
+          img.alt = filename;
+          img.loading = 'lazy';
+          img.onerror = function () {
+            thumb.innerHTML = `${placeholderIconSVG}<span>${filename}</span>`;
+          };
+          thumb.appendChild(img);
+        });
+      });
+    }
+    renderThumbnails();
 
     // ============ Lightbox implementation ============
     let currentProject = null;
@@ -1379,10 +1387,7 @@
     lightbox.innerHTML = `
       <div class="lightbox-content">
         <button class="lightbox-close" aria-label="Close lightbox" tabindex="0">×</button>
-        <div class="lightbox-img-wrap">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#666;"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
-          <p style="color:#888;">Loading...</p>
-        </div>
+        <div class="lightbox-img-wrap"></div>
         <p class="lightbox-caption"></p>
         <p class="lightbox-counter"></p>
         <button class="lightbox-prev" aria-label="Previous photo" tabindex="0">❮</button>
@@ -1396,7 +1401,7 @@
       currentPhotoIndex = photoIndex || 0;
       const photos = galleryData[projectId];
       if (!photos) return;
-      
+
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
       updateLightboxContent();
@@ -1411,12 +1416,19 @@
     function updateLightboxContent() {
       const photos = galleryData[currentProject];
       if (!photos) return;
-      
-      const photo = photos[currentPhotoIndex];
+
+      const filename = photos[currentPhotoIndex];
       const wrap = lightbox.querySelector('.lightbox-img-wrap');
-      wrap.innerHTML = `<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#666;"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z"></path><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg><p style="color:#888;">${photo.label}</p>`;
-      
-      lightbox.querySelector('.lightbox-caption').textContent = photo.label;
+      wrap.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = filename;
+      img.alt = filename;
+      img.onerror = function () {
+        wrap.innerHTML = `${placeholderIconSVG}<p style="color:#888;">${filename} not found</p>`;
+      };
+      wrap.appendChild(img);
+
+      lightbox.querySelector('.lightbox-caption').textContent = filename;
       lightbox.querySelector('.lightbox-counter').textContent = `${currentPhotoIndex + 1} of ${photos.length}`;
     }
 
@@ -1438,7 +1450,7 @@
     lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
     lightbox.querySelector('.lightbox-next').addEventListener('click', nextPhoto);
     lightbox.querySelector('.lightbox-prev').addEventListener('click', prevPhoto);
-    
+
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox();
     });
@@ -1472,6 +1484,24 @@
       }
     });
 
+    // ============ Video availability check ============
+    async function checkVideoAvailability() {
+      const wraps = document.querySelectorAll('.project-video-wrap');
+      for (const wrap of wraps) {
+        const src = wrap.getAttribute('data-video-src');
+        let available = true;
+        try {
+          const response = await fetch(src, { method: 'HEAD' });
+          available = response.ok;
+        } catch (err) {
+          available = false;
+        }
+        if (!available) {
+          wrap.innerHTML = `<div style="background:#f0f0f0;border-radius:10px;padding:32px 16px;text-align:center;color:#999;font-size:14px;">🎬 Demo video coming soon<div class="coming-soon-badge" style="margin-top:8px;">${src}</div></div>`;
+        }
+      }
+    }
+
     // ============ Document availability check ============
     async function checkDocumentAvailability() {
       const downloadBtns = document.querySelectorAll('.download-btn');
@@ -1496,11 +1526,15 @@
       }
     }
 
-    // Run document check on page load
+    // Run availability checks on page load
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', checkDocumentAvailability);
+      document.addEventListener('DOMContentLoaded', () => {
+        checkDocumentAvailability();
+        checkVideoAvailability();
+      });
     } else {
       checkDocumentAvailability();
+      checkVideoAvailability();
     }
   </script>
 </body>
