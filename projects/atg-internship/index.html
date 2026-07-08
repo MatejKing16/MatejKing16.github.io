@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PROJECT_TITLE - A detailed look at the design, engineering decisions, and results.">
-  <meta property="og:title" content="PROJECT_TITLE | Matěj Král">
-  <meta property="og:description" content="PROJECT_SHORT_DESC">
-  <meta property="og:image" content="../photo.jpg">
-  <title>PROJECT_TITLE | Matěj Král</title>
+  <meta name="description" content="End-of-Arm Tooling for Bag-in-Box Palletization - A detailed look at the design, engineering decisions, and results.">
+  <meta property="og:title" content="End-of-Arm Tooling for Bag-in-Box Palletization | Matěj Král">
+  <meta property="og:description" content="Graduation thesis project: Complete EOAT design for FANUC industrial robot using vacuum technology and aluminum fabrication.">
+  <meta property="og:image" content="../eoat-assembly.jpg">
+  <title>End-of-Arm Tooling for Bag-in-Box Palletization | Matěj Král</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -203,70 +203,71 @@
   <main class="page-shell">
     <a href="../../" class="back-link">← Back to portfolio</a>
 
-    <h1>PROJECT_TITLE</h1>
-    <p class="meta">PROJECT_DATE · PROJECT_ROLE</p>
+    <h1>End-of-Arm Tooling for Bag-in-Box Palletization</h1>
+    <p class="meta">March 2026 · Graduation Thesis</p>
 
     <section>
       <h2>Overview</h2>
-      <p>WRITE A PARAGRAPH DESCRIBING THE PROJECT: what problem did you solve? What were you trying to achieve? Why does it matter?</p>
+      <p>Designed and engineered a complete End-of-Arm Tool (EOAT) for a FANUC R-1000iA/100F industrial robot to automate the palletization of Bag-in-Box (BiB) liquid packaging. The project involved vacuum system design, structural FEA analysis, technical documentation, and full BOM preparation for manufacturing. Successfully achieved a safety factor of 4.8 with a total EOAT weight of 1.7 kg while handling a 10 kg payload.</p>
     </section>
 
     <section>
-      <h2>Photos</h2>
+      <h2>Project Highlights</h2>
       <div class="image-grid">
-        <!-- Add images here: replace img-1.jpg, img-2.jpg with your actual filenames -->
-        <img src="img-1.jpg" alt="Project photo 1">
-        <img src="img-2.jpg" alt="Project photo 2">
-        <img src="img-3.jpg" alt="Project photo 3">
+        <!-- Place these image files in the same folder: eoat-assembly.jpg, solidworks-model.jpg, technical-drawing.jpg, robot-cell.jpg -->
+        <img src="eoat-assembly.jpg" alt="EOAT assembly mounted on robot">
+        <img src="solidworks-model.jpg" alt="SolidWorks 3D model">
+        <img src="technical-drawing.jpg" alt="Technical drawing ISO 13715">
+        <img src="robot-cell.jpg" alt="Robot cell integration">
       </div>
     </section>
 
     <section>
-      <h2>Specifications</h2>
+      <h2>Key Specifications</h2>
       <div class="specs">
         <div class="spec-item">
-          <div class="spec-label">Timeline</div>
-          <div class="spec-value">MONTHS</div>
+          <div class="spec-label">Payload Capacity</div>
+          <div class="spec-value">10 kg</div>
         </div>
         <div class="spec-item">
-          <div class="spec-label">Team Size</div>
-          <div class="spec-value">SOLO / X PEOPLE</div>
+          <div class="spec-label">EOAT Weight</div>
+          <div class="spec-value">1.7 kg</div>
         </div>
         <div class="spec-item">
-          <div class="spec-label">Status</div>
-          <div class="spec-value">COMPLETE / IN PROGRESS</div>
+          <div class="spec-label">Safety Factor</div>
+          <div class="spec-value">k = 4.8</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Vacuum Level</div>
+          <div class="spec-value">−60 kPa</div>
         </div>
       </div>
     </section>
 
     <section>
       <h2>Technical Details</h2>
-      <p>WRITE 2-3 PARAGRAPHS EXPLAINING:</p>
-      <ul>
-        <li>Design decisions and why you made them</li>
-        <li>Tools and software you used</li>
-        <li>Challenges you faced and how you solved them</li>
-        <li>What you'd do differently next time</li>
-      </ul>
+      <p><strong>Structure & Materials:</strong> Base plate fabricated from EN-AW 5083 aluminum (8mm thickness) for lightweight yet robust construction. All structural components designed to withstand the dynamic stresses of a 6-axis robot operating at speeds up to 400 mm/s.</p>
+      
+      <p><strong>Vacuum System:</strong> SMC ZK2A15K5PL-06-B ejector provides the vacuum generation, with four SMC 50mm anti-slip suction cups providing a total contact area of 6,540 mm². Digital PNP proximity sensor with adjustable hysteresis enables automatic grip confirmation and fault detection.</p>
+      
+      <p><strong>Design & Analysis:</strong> Full SolidWorks CAD model with FEA analysis to verify structural integrity under operating loads. Technical drawings prepared according to ISO 13715 standards. Complete 18-component BOM with supplier information and cost analysis included.</p>
     </section>
 
     <section>
-      <h2>Results</h2>
-      <p>What worked? What didn't? What did you learn? Be honest here — real learning is more valuable than perfect execution.</p>
-    </section>
-
-    <section>
-      <h2>Skills Applied</h2>
+      <h2>Skills & Technologies</h2>
       <div class="tags">
-        <span class="tag">SolidWorks</span>
-        <span class="tag">CAD</span>
-        <span class="tag">SKILL-3</span>
-        <span class="tag">SKILL-4</span>
-      </div>
+        <span class="tag">FANUC Robotics</span>
+        <span class="tag">SolidWorks CAD</span>
+        <span class="tag">FEA Analysis</span>
+        <span class="tag">Vacuum Engineering</span>
+        <span class="tag">ISO 13715</span>
+        <span class="tag">Technical Drawing</span>
+        <span class="tag">Aluminum Fabrication</span>
+        <span class="tag">EOAT Design</span>
     </section>
 
     <footer>
-      <p>Want to discuss this project or see the code? <a href="mailto:matejkral1603@gmail.com">Get in touch</a> or check out my <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+      <p>Want to discuss this project or see more details? <a href="mailto:matejkral1603@gmail.com">Get in touch</a> or visit my <a href="https://github.com/matejkral1603" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
       <p>Matěj Král · Prague · 2026</p>
     </footer>
   </main>

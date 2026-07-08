@@ -1014,37 +1014,40 @@
     </section>
 
     <section id="work" aria-labelledby="featured-project">
-      <div class="feature-card">
-        <div class="project-gallery" id="gallery-featured">
-          <!-- Place files in same folder: eoat-assembly.jpg, solidworks-model.jpg, technical-drawing.jpg, robot-cell.jpg -->
-          <div class="gallery-thumb" onclick="openLightbox('featured', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
-          <div class="gallery-thumb" onclick="openLightbox('featured', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
-          <div class="gallery-thumb" onclick="openLightbox('featured', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
-          <div class="gallery-thumb" onclick="openLightbox('featured', 3)" role="button" tabindex="0" aria-label="Gallery image 4"></div>
-        </div>
-        <div class="feature-grid">
-          <div>
-            <p class="section-copy">Featured Project</p>
-            <h2 class="section-headline" id="featured-project">End-of-Arm Tooling for Bag-in-Box Palletization</h2>
-            <p class="feature-meta">Graduation Thesis · March 2026</p>
+      <a href="projects/eoat-tooling/" style="text-decoration: none; color: inherit;">
+        <div class="feature-card" style="cursor: pointer; transition: transform .25s ease, box-shadow .25s ease; border-radius: var(--radius);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div class="project-gallery" id="gallery-featured">
+            <!-- Place files in same folder: eoat-assembly.jpg, solidworks-model.jpg, technical-drawing.jpg, robot-cell.jpg -->
+            <div class="gallery-thumb" onclick="openLightbox('featured', 0)" role="button" tabindex="0" aria-label="Gallery image 1"></div>
+            <div class="gallery-thumb" onclick="openLightbox('featured', 1)" role="button" tabindex="0" aria-label="Gallery image 2"></div>
+            <div class="gallery-thumb" onclick="openLightbox('featured', 2)" role="button" tabindex="0" aria-label="Gallery image 3"></div>
+            <div class="gallery-thumb" onclick="openLightbox('featured', 3)" role="button" tabindex="0" aria-label="Gallery image 4"></div>
           </div>
-          <div class="feature-meta" style="justify-self: end;">Robot: FANUC R-1000iA/100F</div>
+          <div class="feature-grid">
+            <div>
+              <p class="section-copy">Featured Project</p>
+              <h2 class="section-headline" id="featured-project">End-of-Arm Tooling for Bag-in-Box Palletization</h2>
+              <p class="feature-meta">Graduation Thesis · March 2026</p>
+            </div>
+            <div class="feature-meta" style="justify-self: end;">Robot: FANUC R-1000iA/100F</div>
+          </div>
+          <div class="specs-grid">
+            <div class="spec"><div class="spec-value">10 kg</div><div class="spec-label">Payload</div></div>
+            <div class="spec"><div class="spec-value">1.7 kg</div><div class="spec-label">EOAT Weight</div></div>
+            <div class="spec"><div class="spec-value">k = 4.8</div><div class="spec-label">Safety Factor</div></div>
+            <div class="spec"><div class="spec-value">−60 kPa</div><div class="spec-label">Vacuum Level</div></div>
+          </div>
+          <p class="section-copy" style="margin-top: 28px;">Designed a complete End-of-Arm Tool for palletizing Bag-in-Box packaging using a FANUC industrial robot. Base plate EN-AW 5083 aluminum (8mm). Vacuum system: SMC ZK2A15K5PL-06-B ejector with 4× SMC 50mm anti-slip suction cups (total contact area 6,540 mm²). Digital PNP sensor with hysteresis for grip confirmation. Full technical drawings per ISO 13715, 18-component BOM, economic calculation.</p>
+          <div class="tags">
+            <span class="tag-pill">FANUC</span>
+            <span class="tag-pill">SolidWorks</span>
+            <span class="tag-pill">Vacuum Engineering</span>
+            <span class="tag-pill">ISO 13715</span>
+            <span class="tag-pill">EOAT</span>
+          </div>
+          <p style="margin-top: 24px; color: var(--accent); font-weight: 600;">View full project details →</p>
         </div>
-        <div class="specs-grid">
-          <div class="spec"><div class="spec-value">10 kg</div><div class="spec-label">Payload</div></div>
-          <div class="spec"><div class="spec-value">1.7 kg</div><div class="spec-label">EOAT Weight</div></div>
-          <div class="spec"><div class="spec-value">k = 4.8</div><div class="spec-label">Safety Factor</div></div>
-          <div class="spec"><div class="spec-value">−60 kPa</div><div class="spec-label">Vacuum Level</div></div>
-        </div>
-        <p class="section-copy" style="margin-top: 28px;">Designed a complete End-of-Arm Tool for palletizing Bag-in-Box packaging using a FANUC industrial robot. Base plate EN-AW 5083 aluminum (8mm). Vacuum system: SMC ZK2A15K5PL-06-B ejector with 4× SMC 50mm anti-slip suction cups (total contact area 6,540 mm²). Digital PNP sensor with hysteresis for grip confirmation. Full technical drawings per ISO 13715, 18-component BOM, economic calculation.</p>
-        <div class="tags">
-          <span class="tag-pill">FANUC</span>
-          <span class="tag-pill">SolidWorks</span>
-          <span class="tag-pill">Vacuum Engineering</span>
-          <span class="tag-pill">ISO 13715</span>
-          <span class="tag-pill">EOAT</span>
-        </div>
-      </div>
+      </a>
     </section>
 
     <section class="highlight-panel" aria-labelledby="czechskills-heading">
@@ -1082,7 +1085,7 @@
             <span class="tag-pill">DIY</span>
             <span class="tag-pill">Precision Machining</span>
           </div>
-          <a class="project-link" href="./cnc-ai-operator/index.html">View project →</a>
+          <a class="project-link" href="./projects/cnc-milling/index.html">View project →</a>
         </article>
 
         <article class="project-card">
@@ -1128,6 +1131,7 @@
             <span class="tag-pill">DFM</span>
             <span class="tag-pill">FEA</span>
           </div>
+          <a class="project-link" href="./projects/squat-rack/index.html">View project →</a>
         </article>
 
         <article class="project-card">
@@ -1147,6 +1151,7 @@
             <span class="tag-pill">Machine Vision</span>
             <span class="tag-pill">Pneumatics</span>
           </div>
+          <a class="project-link" href="./projects/atg-internship/index.html">View project →</a>
         </article>
 
         <article class="project-card">
@@ -1166,6 +1171,7 @@
             <span class="tag-pill">Aerospace</span>
             <span class="tag-pill">ISO 4706-m</span>
           </div>
+          <a class="project-link" href="./projects/reverse-engineering/index.html">View project →</a>
         </article>
       </div>
     </section>
